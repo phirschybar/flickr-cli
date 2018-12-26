@@ -2,7 +2,59 @@
 
 A command-line interface to [Flickr](https://www.flickr.com/). Upload and download photos, photo sets, directories via shell.
 
-## Installation
+## Custom Setup Instructions 
+
+### Dropbox setup 
+
+If you need a full Dropbox => Flickr sync:
+
+```
+cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+~/.dropbox-dist/dropboxd   # starts dropbox daemon, attempts to authorize. follow instructions
+wget -O dropbox.py https://www.dropbox.com/download?dl=packages/dropbox.py
+chmod a+x dropbox.py
+./dropbox.py start
+./dropbox.py status   # to check status of dropbox daemon
+df -h   # to track disk usage as dropbox fills up. grab a coffee.
+```
+
+### PHP & Flickr CLI Setup 
+
+```
+sudo apt-get update
+sudo apt-get install git
+git clone https://github.com/TheFox/flickr-cli.git   # install flickr CLI
+sudo apt-get install php php-curl php7.0-bcmath php-xml
+cd flickr-cli
+wget -O install-composer.php https://getcomposer.org/installer
+php install-composer.php
+php composer.phar install   # will install all dependencies
+nano config.yml 
+```
+
+Paste the following into the file then CTRL+X to save:
+
+``` 
+flickr:
+    consumer_key: cbda7e070441bd06477bdefc6227d017
+    consumer_secret: 9174a9022a63d725
+```
+
+`./bin/flickr-cli auth --config=config.yml` then follow the prompts
+
+### Flickr CLI Usage
+
+To upload a complete directory:
+`./bin/flickr-cli --config=data/config.yml upload [PATH]`  
+
+Or even better, have the completed files moved to another directory in case you need to re-run a directory that had failed files or stopped while in progress:
+
+```
+mkdir moved
+./bin/flickr-cli --config=data/config.yml --move=moved upload [PATH]
+```
+
+## Standard Installation
 
 1. Clone from Github:
 

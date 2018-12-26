@@ -6,3 +6,4 @@ composer.phar
 /log/
 .env
 .idea
+*.sublime-workspace
