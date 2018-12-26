@@ -36,8 +36,8 @@ Paste the following into the file then CTRL+X to save:
 
 ``` 
 flickr:
-    consumer_key: cbda7e070441bd06477bdefc6227d017
-    consumer_secret: 9174a9022a63d725
+    consumer_key: <paste key here>
+    consumer_secret: <paste secret here>
 ```
 
 `./bin/flickr-cli auth --config=config.yml` then follow the prompts
