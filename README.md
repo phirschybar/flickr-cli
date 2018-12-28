@@ -32,6 +32,8 @@ php composer.phar install   # will install all dependencies
 nano config.yml 
 ```
 
+Get Flickr API key and secret from [here](https://www.flickr.com/services/apps/create/apply/).
+
 Paste the following into the file then CTRL+X to save:
 
 ``` 
@@ -51,7 +53,7 @@ Or even better, have the completed files moved to another directory in case you 
 
 ```
 mkdir moved
-./bin/flickr-cli --config=data/config.yml --move=moved upload [PATH]
+./bin/flickr-cli --verbose --config=data/config.yml --move=/root/moved upload [PATH]
 ```
 
 ## Standard Installation
