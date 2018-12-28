@@ -47,13 +47,13 @@ flickr:
 ### Flickr CLI Usage
 
 To upload a complete directory:
-`./bin/flickr-cli --config=data/config.yml upload [PATH]`  
+`./bin/flickr-cli --config=config.yml upload [PATH]`  
 
 Or even better, have the completed files moved to another directory in case you need to re-run a directory that had failed files or stopped while in progress:
 
 ```
 mkdir moved
-./bin/flickr-cli --verbose --config=data/config.yml --move=/root/moved upload [PATH]
+./bin/flickr-cli --verbose --config=config.yml --move=/root/moved upload [PATH]
 ```
 
 ## Standard Installation
